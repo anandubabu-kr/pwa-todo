@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa';
-
+import { manifesto } from './manifesto.js'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), VitePWA({
-    registerType: 'autoUpdate', devOptions: {
+    registerType: 'autoUpdate', manifest: { ...manifesto }, devOptions: {
       enabled: true
     }
   },)],
