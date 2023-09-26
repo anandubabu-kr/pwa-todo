@@ -1,5 +1,3 @@
-import React from "react";
-
 function App() {
   const todoes = [
     { text: "Todo text", isComplete: false },
