@@ -7,23 +7,20 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install pnpm
+      - name: Install package manager - pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
-
       - uses: actions/checkout@v3
-      - run: "pnpm install --frozen-lockfile && npm run build "
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+
+      - name: Install dependencies and build
+        run: "pnpm install --frozen-lockfile && npm run build "
+
+      - name: Deploy to firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_METRO_LMS_9DF06 }}"
