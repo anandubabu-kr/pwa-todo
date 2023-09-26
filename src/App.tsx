@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React from "react";
 
 function App() {
-  const [todoes, setTodoes] = useState([
+  const todoes = [
     { text: "Todo text", isComplete: false },
     { text: "Todo text 2", isComplete: false },
-  ]);
+  ];
 
   return (
     <div className="p-6">
