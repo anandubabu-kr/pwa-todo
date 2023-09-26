@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "site": "anb-todo",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
