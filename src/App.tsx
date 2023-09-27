@@ -5,12 +5,15 @@ import { todoItemType } from "./types";
 
 function App() {
   const [todoes, setTodoes] = useState<todoItemType[]>([]);
-  // const  = [
-  //   { text: "Todo text", isComplete: false },
-  //   { text: "Todo text 2", isComplete: false },
-  // ];
+
   const addNewItem = (item: todoItemType) => {
     setTodoes([...todoes, item]);
+  };
+
+  const deleteItem = (index: number) => {
+    const newList = todoes.filter((_item, i) => i !== index);
+
+    setTodoes(newList);
   };
 
   return (
@@ -21,9 +24,17 @@ function App() {
 
         <hr className="my-5 w-1/2 mx-auto" />
 
+        {!todoes.length && (
+          <p className="  text-center text-slate-500">No items yet!!</p>
+        )}
         <div>
-          {todoes.map((todoItem: todoItemType) => (
-            <TaskItem todoItem={todoItem} />
+          {todoes.map((todoItem: todoItemType, i: number) => (
+            <TaskItem
+              key={i}
+              index={i}
+              deleteItem={deleteItem}
+              todoItem={todoItem}
+            />
           ))}
         </div>
       </main>

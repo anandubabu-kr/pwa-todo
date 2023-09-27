@@ -9,8 +9,10 @@ const AddForm = ({ addNewItem }: propType) => {
   const createTask = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    addNewItem({ text: taskName, isComplete: false });
-    setTaskName("");
+    if (taskName) {
+      addNewItem({ text: taskName, isComplete: false });
+      setTaskName("");
+    }
   };
 
   return (
