@@ -16,6 +16,16 @@ function App() {
     setTodoes(newList);
   };
 
+  const completeTask = (index: number) => {
+    console.log(index, todoes[index]);
+    const updatedItem: todoItemType = { ...todoes[index], isComplete: true };
+    const newArray = [...todoes];
+
+    // Update the element at the specified index with the new value
+    newArray[index] = updatedItem;
+    setTodoes(newArray);
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-xl text-center my-4">My Tasks</h1>
@@ -32,6 +42,7 @@ function App() {
             <TaskItem
               key={i}
               index={i}
+              completeTask={completeTask}
               deleteItem={deleteItem}
               todoItem={todoItem}
             />
