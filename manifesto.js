@@ -4,23 +4,23 @@ export const manifesto = {
   description: "An app that for todo .",
   icons: [
     {
-      src: "vite.svg",
+      src: "logo.svg",
       sizes: "192x192",
       type: "image/png",
     },
     {
-      src: "vite.svg",
+      src: "logo.svg",
       sizes: "512x512",
       type: "image/png",
     },
     {
-      src: "vite.svg",
+      src: "logo.svg",
       sizes: "180x180",
       type: "image/png",
       purpose: "apple touch icon",
     },
     {
-      src: "vite.svg",
+      src: "logo.svg",
       sizes: "225x225",
       type: "image/png",
       purpose: "any maskable",
