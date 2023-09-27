@@ -1,7 +1,0 @@
-{
-  "hosting": {
-    "public": "dist",
-    "site": "todo-anb",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
-}
