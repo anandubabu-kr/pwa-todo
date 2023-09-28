@@ -35,7 +35,7 @@ function App() {
       <main className="flex flex-col">
         <hr className="my-5 w-1/2 mx-auto" />
 
-        <div className="h-[75vh] overflow-y-auto px-6">
+        <div className="h-[65vh] md:h-[75vh] overflow-y-auto px-6">
           {!todoes.length && (
             <p className="  text-center text-slate-500">No items yet!!</p>
           )}
