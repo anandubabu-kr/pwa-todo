@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddForm from "./components/AddForm";
 import TaskItem from "./components/TaskItem";
 import { todoItemType } from "./types";
 
 function App() {
   const [todoes, setTodoes] = useState<todoItemType[]>([]);
+
+  useEffect(() => {}, [todoes]);
 
   const addNewItem = (item: todoItemType) => {
     setTodoes([...todoes, item]);
@@ -17,37 +19,46 @@ function App() {
   };
 
   const completeTask = (index: number) => {
-    console.log(index, todoes[index]);
     const updatedItem: todoItemType = { ...todoes[index], isComplete: true };
     const newArray = [...todoes];
 
-    // Update the element at the specified index with the new value
     newArray[index] = updatedItem;
     setTodoes(newArray);
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-xl text-center my-4">My Tasks</h1>
+    <div>
+      <h1 className="text-xl font-bold flex justify-center my-4 text-orange-500">
+        <img src="/logo.svg" />
+        <span className="mx-4">My Tasks</span>
+      </h1>
       <main className="flex flex-col">
-        <AddForm addNewItem={addNewItem} />
-
         <hr className="my-5 w-1/2 mx-auto" />
 
-        {!todoes.length && (
-          <p className="  text-center text-slate-500">No items yet!!</p>
-        )}
-        <div>
-          {todoes.map((todoItem: todoItemType, i: number) => (
+        <div className="h-[75vh] overflow-y-auto px-6">
+          {!todoes.length && (
+            <p className="  text-center text-slate-500">No items yet!!</p>
+          )}
+          {todoes.map((todoItem: todoItemType, index: number) => (
             <TaskItem
-              key={i}
-              index={i}
+              key={index}
+              index={index}
               completeTask={completeTask}
               deleteItem={deleteItem}
               todoItem={todoItem}
             />
           ))}
         </div>
+
+        <AddForm addNewItem={addNewItem} />
+        <a
+          className="text-center text-orange-600"
+          href="http://anandubabu.netlify.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          An.B apps
+        </a>
       </main>
     </div>
   );

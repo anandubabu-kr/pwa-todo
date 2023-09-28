@@ -19,7 +19,7 @@ const TaskItem = ({ todoItem, deleteItem, index, completeTask }: propType) => {
           : "bg-slate-100"
       }`}
     >
-      <p className="p-2 ">{todoItem.text}</p>
+      <p className="py-3 mr-2 mx-4 max-w-[65%] truncate">{todoItem.text}</p>
       {todoItem.isComplete ? (
         <p className="mx-4">
           <img src={check} width={16} height={16} alt="trash" />
