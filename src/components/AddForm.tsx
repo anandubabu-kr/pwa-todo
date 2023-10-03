@@ -16,7 +16,7 @@ const AddForm = ({ addNewItem }: propType) => {
   };
 
   return (
-    <div className="max-w-xl w-full mx-auto py-3">
+    <div className="max-w-xl w-full mx-auto py-3 drop-shadow">
       <form className="box-border flex mx-6 md:mx-0 rounded-lg overflow-hidden border border-slate-200  justify-between">
         <input
           value={taskName}

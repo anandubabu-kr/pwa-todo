@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddForm from "./components/AddForm";
 import TaskItem from "./components/TaskItem";
 import { todoItemType } from "./types";
 
 function App() {
   const [todoes, setTodoes] = useState<todoItemType[]>([]);
-
-  useEffect(() => {}, [todoes]);
 
   const addNewItem = (item: todoItemType) => {
     setTodoes([...todoes, item]);
@@ -28,16 +26,17 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-xl font-bold flex justify-center my-4 text-orange-500">
-        <img src="/logo.svg" />
-        <span className="mx-4">My Tasks</span>
-      </h1>
-      <main className="flex flex-col">
-        <hr className="my-5 w-1/2 mx-auto" />
-
-        <div className="h-[65vh] md:h-[75vh] overflow-y-auto px-6">
+      <div className="/drop-shadow mx-6 bg-white py-3 my-4 rounded-xl">
+        <h1 className="text-xl font-bold flex justify-center text-orange-500 ">
+          <img src="/logo.svg" />
+          <span className="mx-4">My Tasks</span>
+        </h1>
+      </div>
+      <main className="flex flex-col px-3">
+        {/* <hr className="my-2 w-1/2 mx-auto" /> */}
+        <div className="h-[75vh] md:h-[75vh] overflow-y-auto mx-auto p-2 inner-shadow max-w-2xl w-full rounded-xl">
           {!todoes.length && (
-            <p className="  text-center text-slate-500">No items yet!!</p>
+            <p className="text-center text-slate-500">No items yet!!</p>
           )}
           {todoes.map((todoItem: todoItemType, index: number) => (
             <TaskItem
