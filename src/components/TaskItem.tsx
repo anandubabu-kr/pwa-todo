@@ -21,9 +21,9 @@ const TaskItem = ({ todoItem, deleteItem, index, completeTask }: propType) => {
     >
       <p className="py-3 mr-2 mx-4 max-w-[65%] truncate">{todoItem.text}</p>
       {todoItem.isComplete ? (
-        <p className="mx-4">
-          <img src={check} width={16} height={16} alt="trash" />
-        </p>
+        <button onClick={() => deleteItem(index)} className="mx-4">
+          <img src={minus} width={16} height={16} alt="trash" />
+        </button>
       ) : (
         <div className={`${todoItem.isComplete ? "hidden" : ""}`}>
           <button className="p-2 bg-red-600 rounded-full ml-2 hidden drop-shadow">
