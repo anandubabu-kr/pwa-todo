@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AddForm from "../components/AddForm";
 import TaskItem from "../components/TaskItem";
 import { todoItemType } from "../types";
-import { addItemToFireStore } from "../firebase/services";
+// import { addItemToFireStore } from "../firebase/services";
 
 const key = "task";
 
@@ -18,7 +18,7 @@ function TodoApp() {
   }, [todos]);
 
   const addNewItem = async (item: todoItemType) => {
-    await addItemToFireStore("user", item);
+    // await addItemToFireStore("user", item);
     setTodos([...todos, item]);
   };
 
