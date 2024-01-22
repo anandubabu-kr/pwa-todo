@@ -38,12 +38,6 @@ function TodoApp() {
 
   return (
     <div>
-      <div className="/drop-shadow mx-6 bg-white py-3 my-4 rounded-xl">
-        <h1 className="text-xl font-bold flex justify-center text-orange-500 ">
-          <img src="/logo.svg" />
-          <span className="mx-4">My Tasks</span>
-        </h1>
-      </div>
       <main className="flex flex-col px-3">
         {/* <hr className="my-2 w-1/2 mx-auto" /> */}
         <div className="h-[75vh] md:h-[75vh] overflow-y-auto mx-auto p-2 inner-shadow max-w-2xl w-full rounded-xl">
